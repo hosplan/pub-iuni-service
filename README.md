@@ -13,11 +13,14 @@ iUniverse는 기존에 상용화 되있는 업무관리 시스템의 높은 사�
 
 ### 주로 사용된 기술 - Unsing Skill
 ---
-  <img src="https://img.shields.io/badge/Next.js-000?logo=nextdotjs&logoColor=fff&style=for-the-badge"/>
+<div>
+    <img src="https://img.shields.io/badge/Next.js-000?logo=nextdotjs&logoColor=fff&style=for-the-badge"/>
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/>
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>    
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>   
+</div>
+ 
 
-### 그외
-
+### 그외 사용한 API
+---
 KaKaoAPI, GoogleAPI, toastUI
 <img src="https://capsule-render.vercel.app/api?type=waving&color=1120ff&height=150&section=footer" />
