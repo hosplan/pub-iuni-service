@@ -1,10 +1,12 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=BDBDC8&height=150&section=header&text=iUniverse"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=#1120ff&height=150&section=header&text=iUniverse"/>
 
 ### 소개 - Introduction
 ---
 iUniverse에 오신것을 환영 합니다.
 
-iUniverse는 범용적인 업무 지원 시스템을 만들기 위해 프로젝트를 시작했습니다.
+iUniverse는 기존에 상용화 되있는 업무관리 시스템의 높은 사용 난이도와 사용하기 불편함을 개선하기 위해 만든 
+
+범용적인 업무 지원 시스템 프로젝트를 입니다.
 
 ### 주로 사용된 기술 - Unsing Skill
 ---
