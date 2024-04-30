@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+    <defs>
+        <linearGradient id="f8p3nurkxa" x1=".371" y1=".356" x2=".632" y2=".657" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#1120ff"/>
+            <stop offset="1" stop-color="#c900d8"/>
+        </linearGradient>
+    </defs>
+    <rect data-name="사각형 26" width="48" height="48" rx="10" style="fill:#f5f5f5"/>
+    <path data-name="패스 11225" d="m29.5 17.368-7.965-2.224a.68.68 0 0 1-.468-.464l-2.4-8.192a.679.679 0 0 0-1.305 0l-2.291 8.021a.679.679 0 0 1-.463.465l-8.12 2.381a.68.68 0 0 0 0 1.305l8.091 2.311a.682.682 0 0 1 .467.467l2.305 8.069a.679.679 0 0 0 1.307 0l2.244-8.033a.679.679 0 0 1 .471-.474l8.135-2.324a.679.679 0 0 0 0-1.307" transform="translate(6 6)" style="fill:url(#f8p3nurkxa)"/>
+</svg>
