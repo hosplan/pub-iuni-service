@@ -5,7 +5,7 @@ iUniverse에 오신것을 환영 합니다.
 iUniverse는 범용적인 업무 지원 시스템을 만들기 위해 프로젝트를 시작했습니다.
 
 <h3>사용된 기술 - Unsing Skill</h3>
-![js](https://img.shields.io/badge/TypeScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
+	https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white
 React, Next.js, Typescript
 
 KaKaoAPI, GoogleAPI, toastUI
