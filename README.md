@@ -1,6 +1,6 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=1120ff&height=150&section=header&text=iUniverse&fontColor=ffffff" />
 
-### ✒ 소개 - Introduction
+### 🎉 소개 - Introduction
 ---
 iUniverse에 오신것을 환영 합니다.
 
@@ -8,7 +8,7 @@ iUniverse는 기존에 상용화 되있는 업무관리 시스템의 높은 사�
 
 범용적인 업무 지원 시스템 프로젝트를 입니다.
 
-### ✒ 참여 인원 
+### 👩‍💻👨‍💻 참여 인원 
 ---
 PM : 김태호
 
@@ -18,7 +18,7 @@ PM : 김태호
 
 파트기획 : 박윤지
 
-### ✒ 주요 기능
+### 🔎 주요 기능
 ---
 1. 보드 - 필요한 분류에 따라 자유롭게 활용 할 수 있습니다.
 
@@ -35,9 +35,10 @@ PM : 김태호
 7. 아바타 - 직접 만든 iuniCat 아바타를 사용하며 자유롭게 꾸밀 수 있습니다.
 
 
-### ✒ 구성 요소
+### 🌈 구성 요소
 ---
 iUniverse는 1개의 Front End, 2개의 backend, 1개의 데이터 구성되었습니다.
+Docker를 통해 컨네이터를 구축 및 API 통신을 통해 데이터를 주고 받습니다.
 
 해당 파트는 FrontEnd 입니다.
 
@@ -50,7 +51,7 @@ iUniverse는 1개의 Front End, 2개의 backend, 1개의 데이터 구성되었�
 </div>
  
 
-### ✒ 그외 사용한 API
+### ✏ 그외 사용한 API
 ---
 KaKaoAPI, GoogleAPI, toastUI
 <img src="https://capsule-render.vercel.app/api?type=waving&color=1120ff&height=150&section=footer" />
