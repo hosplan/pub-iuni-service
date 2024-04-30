@@ -1,6 +1,6 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=1120ff&height=150&section=header&text=iUniverse&fontColor=ffffff" />
 
-### 소개 - Introduction
+### ✒ 소개 - Introduction
 ---
 iUniverse에 오신것을 환영 합니다.
 
@@ -8,13 +8,13 @@ iUniverse는 기존에 상용화 되있는 업무관리 시스템의 높은 사�
 
 범용적인 업무 지원 시스템 프로젝트를 입니다.
 
-### 구성 요소
+### ✒ 구성 요소
 ---
 iUniverse는 1개의 Front End, 2개의 backend, 1개의 데이터 구성되었습니다.
 
 해당 파트는 FrontEnd 입니다.
 
-### 주로 사용된 기술 - Unsing Skill
+### ✒ 주로 사용된 기술 - Unsing Skill
 ---
 <div>
     <img src="https://img.shields.io/badge/Next.js-000?logo=nextdotjs&logoColor=fff&style=for-the-badge"/>
@@ -23,7 +23,7 @@ iUniverse는 1개의 Front End, 2개의 backend, 1개의 데이터 구성되었�
 </div>
  
 
-### 그외 사용한 API
+### ✒ 그외 사용한 API
 ---
 KaKaoAPI, GoogleAPI, toastUI
 <img src="https://capsule-render.vercel.app/api?type=waving&color=1120ff&height=150&section=footer" />
