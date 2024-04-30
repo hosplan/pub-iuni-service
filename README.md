@@ -1,4 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=1120ff&height=150&section=header&text=iUniverse"&textcolor=white/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=1120ff&height=150&section=header&text=iUniverse"&fontColor=white/>
 
 ### 소개 - Introduction
 ---
@@ -17,4 +17,4 @@ iUniverse는 기존에 상용화 되있는 업무관리 시스템의 높은 사�
 ### 그외
 
 KaKaoAPI, GoogleAPI, toastUI
-<img src="https://capsule-render.vercel.app/api?type=waving&color=1120ff&height=150&section=footer"&textcolor=white />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=1120ff&height=150&section=footer" />
