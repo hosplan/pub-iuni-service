@@ -8,8 +8,11 @@ iUniverse는 기존에 상용화 되있는 업무관리 시스템의 높은 사�
 
 범용적인 업무 지원 시스템 프로젝트를 입니다.
 
+### 구성 요소
+---
+iUniverse는 1개의 Front End, 2개의 backend, 1개의 데이터 구성되었습니다.
 
-
+해당 파트는 FrontEnd 입니다.
 
 ### 주로 사용된 기술 - Unsing Skill
 ---
