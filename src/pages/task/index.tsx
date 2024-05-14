@@ -22,10 +22,11 @@ function Page() {
     const create = useCallback(async () => {
         const temp_board = [...boards];
         const latestBoards = temp_board.sort((a : Board, b : Board) => b.boardOrder - a.boardOrder);
+        
         renderBoard(await BoardApi.create({
             "name": "새로운 보드",
             "description": "새로만든 보드에요.",
-            "boardOrder" : latestBoards[0].boardOrder + 1
+            "boardOrder" : latestBoards.length === 0 ? 0 : latestBoards[0].boardOrder + 1
         }));
     }, [boards]);
 
