@@ -134,7 +134,8 @@ function Boards(props: Props) {
     };
 
     const updateTaskInfo = (task_list: any) => {
-        return new Promise<void>((resolve, reject) => {                    
+        return new Promise<void>((resolve, reject) => {             
+            
             setTaskInfo((pre: any) => {
                 const temp: any = {};
                 temp[props.board?.id] = [...task_list];

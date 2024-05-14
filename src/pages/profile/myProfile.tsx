@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import * as IuniStyleApi from "../../../public/api/iuniStyle";
+import ChangePw from "./changePw";
+import { changePw } from "../../../public/api/losePw";
 interface User {
     nickName : string,
     email : string,
@@ -7,6 +9,7 @@ interface User {
 }
 export default function MyProfile(){
     const [user, setUser] = useState<User | undefined>();
+    const [isChangePw, setIsChangePw] = useState<boolean>(false);
 
     const getMyInfo = async () => {
         const userInfo = await IuniStyleApi.getUserProfile();
@@ -43,10 +46,16 @@ export default function MyProfile(){
                             <div className="item title">비밀번호</div>
                             <div className="item description">
                                 *******
-                                <div className="pw-change-btn">변경하기</div>
+                                {
+                                    !isChangePw && 
+                                    <div className="pw-change-btn" onClick={() => setIsChangePw(() => true)}>변경하기</div>
+                                }
                             </div>
                         </div>
-
+                        {
+                            isChangePw &&
+                            <ChangePw setIsChangePw={setIsChangePw}/>
+                        }
                         <div className="item">
                             <div className="item title">닉네임</div>
                             <div className="item description">
@@ -88,6 +97,7 @@ export default function MyProfile(){
                         color: white;
                         border-radius: 15px;
                         background-color: #222;
+                        cursor: pointer;
                     }
                     .content-body{
                         padding-top: 2.563rem;
