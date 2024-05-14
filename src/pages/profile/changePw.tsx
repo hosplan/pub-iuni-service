@@ -149,9 +149,10 @@ function ChangePw(props: Props) {
                         border-bottom: 2px solid #ff0062;
                     }
                     .pw-change-cancle-btn{
-                        width: 60px;
+                        width: 65px;
                         margin : 0 0 0 auto;
                         font-size: 14px;
+                        text-align:center;
                         padding: 5px 16px;
                         color: 636363;
                         border-radius: 15px;

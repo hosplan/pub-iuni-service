@@ -5,7 +5,8 @@ import { changePw } from "../../../public/api/losePw";
 interface User {
     nickName : string,
     email : string,
-    name : string
+    name : string,
+    isSocial: boolean
 }
 export default function MyProfile(){
     const [user, setUser] = useState<User | undefined>();
@@ -18,7 +19,8 @@ export default function MyProfile(){
             const result = {
                 "email" : userInfo.email,
                 "nickName" : userInfo.nickName,
-                "name" : userInfo.name
+                "name" : userInfo.name,
+                "isSocial" : userInfo.isSocial
             }
             return {...result};
         });
@@ -41,8 +43,9 @@ export default function MyProfile(){
                                 {user?.email}
                             </div>
                         </div>
-                        
-                        <div className="item">
+                        {
+                            !user?.isSocial &&
+                            <div className="item">
                             <div className="item title">비밀번호</div>
                             <div className="item description">
                                 *******
@@ -52,6 +55,7 @@ export default function MyProfile(){
                                 }
                             </div>
                         </div>
+                        }
                         {
                             isChangePw &&
                             <ChangePw setIsChangePw={setIsChangePw}/>

@@ -45,11 +45,12 @@ function MemberField(props: Props){
     
     const getCreateIuni = async () => {
         const result = await getMember(props.task.id);
+
         const creator : IuniMember = result.find((e:any) => e.mapType === "owner");
         const editor : IuniMember = result.find((e:any) => e.mapType === "editor");
-        
+      
         const creatorIuniStyle : Avatar = await IuniStyle.getByCreator(creator?.memberId);
-        const editorIuniStyle : Avatar = editor ? await IuniStyle.getByCreator(editor.memberId) : undefined;
+        const editorIuniStyle : Avatar = editor ? await IuniStyle.getByCreator(editor?.memberId) : undefined;
         setMembers(() => {
             const result : {[key: string] : MemberInfo} = {
                 "owner" :{
