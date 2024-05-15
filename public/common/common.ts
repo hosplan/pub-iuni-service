@@ -21,7 +21,6 @@ export function prettyDate(source : Date, delimiter = '-') {
 }
 
 export function logOut(){
-    console.log("엄엄엄ㅇ머");
     window.localStorage.removeItem("iuni");
     window.localStorage.removeItem("iuni_refresh");
     window.location.href = "/";

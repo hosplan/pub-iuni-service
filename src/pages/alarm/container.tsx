@@ -6,7 +6,7 @@ interface Props {
     setAlarms : React.Dispatch<React.SetStateAction<AlarmContents | undefined>>;
 }
 export default function Container(props : Props){
-    console.log(props.type);
+ 
     const TITLE : any = {
         "alarms": "알람",
         "shareTaskAlarms": "공유요청 받은 태스크"

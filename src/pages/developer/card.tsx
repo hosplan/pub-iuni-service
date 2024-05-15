@@ -14,11 +14,11 @@ interface Props{
 function Card(props: Props) {
     
     const [status, setStatus] = useState<string>("none");
-    useEffect(() => {
-        if(props.width){
-            console.log(props.width/3);
-        }
-    }, []);
+    // useEffect(() => {
+    //     if(props.width){
+    //         console.log(props.width/3);
+    //     }
+    // }, []);
     
     return (
         <>

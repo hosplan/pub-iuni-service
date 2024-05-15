@@ -105,7 +105,7 @@ function Card(props: Props){
                     return `D-${String(result)}`;
                 }
             }
-            console.log(task);
+     
             return (
                 <>
                     {

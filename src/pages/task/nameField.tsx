@@ -18,7 +18,7 @@ function NameField(props : Props){
     const [tab, setTab] = useState<boolean>(false);
     const [shareTab, setShareTab] = useState<boolean>(false);
     const [partyMemberTab, setPartyMemberTab] = useState<boolean>(false);
-    const [certificationTab, setCertificationTab] = useState<boolean>(false);
+    //const [certificationTab, setCertificationTab] = useState<boolean>(false);
 
     const tabRef = useRef<HTMLDivElement>(null);
     const btnRef = useRef<HTMLDivElement>(null);

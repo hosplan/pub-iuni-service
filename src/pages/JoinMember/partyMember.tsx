@@ -7,7 +7,7 @@ interface Props {
     setJoinMemberTab: React.Dispatch<React.SetStateAction<boolean>>
 }
 export default function PartyMember(props: Props) {
-    console.log(props);
+
     const joinMemberTabRef = useRef<any>();
 
     useEffect(() => {

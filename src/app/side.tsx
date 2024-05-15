@@ -50,7 +50,7 @@ export default function Side() {
     }
     const loadAlarms = async () => {
         const result = await AlarmApi.load();
-        console.log(result);
+
         const unReadAlarm =result?.alarms?.find(e => e.isRead === false);
         const unReadShareTaskAlram = result?.shareTaskAlarms?.find(e => e.isRead === false);
         if(unReadAlarm || unReadShareTaskAlram){
