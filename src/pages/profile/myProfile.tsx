@@ -58,7 +58,7 @@ export default function MyProfile(){
                         }
                         {
                             isChangePw &&
-                            <ChangePw setIsChangePw={setIsChangePw}/>
+                            <ChangePw setIsChangePw={setIsChangePw} email={user.email}/>
                         }
                         <div className="item">
                             <div className="item title">닉네임</div>
