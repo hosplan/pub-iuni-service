@@ -3,81 +3,93 @@ import * as IuniStyleApi from "../../../public/api/iuniStyle";
 import ChangePw from "./changePw";
 import { changePw } from "../../../public/api/losePw";
 interface User {
-    nickName : string,
-    email : string,
-    name : string,
+    nickName: string,
+    email: string,
+    name: string,
     isSocial: boolean
 }
-export default function MyProfile(){
+export default function MyProfile() {
     const [user, setUser] = useState<User | undefined>();
     const [isChangePw, setIsChangePw] = useState<boolean>(false);
-
+    const [isUnscribe, setIsUnscribe] = useState<boolean>(false);
     const getMyInfo = async () => {
         const userInfo = await IuniStyleApi.getUserProfile();
-        
-        setUser((props : User | undefined) => {
+
+        setUser((props: User | undefined) => {
             const result = {
-                "email" : userInfo.email,
-                "nickName" : userInfo.nickName,
-                "name" : userInfo.name,
-                "isSocial" : userInfo.isSocial
+                "email": userInfo.email,
+                "nickName": userInfo.nickName,
+                "name": userInfo.name,
+                "isSocial": userInfo.isSocial
             }
-            return {...result};
+            return { ...result };
         });
     }
 
     useEffect(() => {
         getMyInfo();
     }, []);
-    return(
+    return (
         <>
             <div className="content">
                 <div className="content-header">
-                    <div className="content-title">내 정보 변경</div>
+                    <div className="content-title">
+                        {isUnscribe ? "탈퇴하기" : "내 정보 변경"}
+                    </div>
                 </div>
                 <div className="content-body">
-                    <div className="basic-info">
-                        <div className="item">
-                            <div className="item title">이메일</div>
-                            <div className="item description">
-                                {user?.email}
-                            </div>
-                        </div>
-                        {
-                            !user?.isSocial &&
-                            <div className="item">
-                            <div className="item title">비밀번호</div>
-                            <div className="item description">
-                                *******
-                                {
-                                    !isChangePw && 
-                                    <div className="pw-change-btn" onClick={() => setIsChangePw(() => true)}>변경하기</div>
-                                }
-                            </div>
-                        </div>
-                        }
-                        {
-                            isChangePw &&
-                            <ChangePw setIsChangePw={setIsChangePw} email={user.email}/>
-                        }
-                        <div className="item">
-                            <div className="item title">닉네임</div>
-                            <div className="item description">
-                                {user?.nickName}
-                            </div>
-                        </div>
+                    {
+                        isUnscribe ?
+                            <>
+                                <div>탈퇴하기 내용이에용</div>
+                            </>
+                            :
+                            <>
+                                <div className="basic-info">
+                                    <div className="item">
+                                        <div className="item title">이메일</div>
+                                        <div className="item description">
+                                            {user?.email}
+                                        </div>
+                                    </div>
+                                    {
+                                        !user?.isSocial &&
+                                        <div className="item">
+                                            <div className="item title">비밀번호</div>
+                                            <div className="item description">
+                                                *******
+                                                {
+                                                    !isChangePw &&
+                                                    <div className="pw-change-btn" onClick={() => setIsChangePw(() => true)}>변경하기</div>
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+                                    {
+                                        isChangePw &&
+                                        <ChangePw setIsChangePw={setIsChangePw} email={user.email} />
+                                    }
+                                    <div className="item">
+                                        <div className="item title">닉네임</div>
+                                        <div className="item description">
+                                            {user?.nickName}
+                                        </div>
+                                    </div>
 
-                        <div className="item">
-                            <div className="item title">이름</div>
-                            <div className="item description">
-                                {user?.name}
-                            </div>
-                        </div>
+                                    <div className="item">
+                                        <div className="item title">이름</div>
+                                        <div className="item description">
+                                            {user?.name}
+                                        </div>
+                                    </div>
 
-                        <div className="item unSubscribe">
-                            <div className="unSubscribe">탈퇴하기</div>
-                        </div>
-                    </div>
+                                    <div className="item unSubscribe">
+                                        <div className="unSubscribe" onClick={() => setIsUnscribe(() => true)}>탈퇴하기</div>
+                                    </div>
+                                </div>
+                            </>
+                    }
+
                 </div>
             </div>
             <style jsx>
@@ -142,6 +154,7 @@ export default function MyProfile(){
                         margin : auto 0 0;
                         color : #ff0062;
                         text-decoration: underline;
+                        cursor : pointer;
                     }
                     `
                 }

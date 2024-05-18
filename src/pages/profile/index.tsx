@@ -14,7 +14,7 @@ function Page(){
     const [tab, setTab] = useState<boolean>(false);
     const [prepare, setPrepare] = useState<boolean>(false);
     const [alarms, setAlarms] = useState<AlarmContents | undefined>();
-
+    const [selectName, setSelectName] = useState<string>("캐릭터 설정");
     const selectRef = useRef<any>();
     const tabRef = useRef<any>();
     const router = useRouter();
@@ -90,7 +90,7 @@ function Page(){
                 
                 <div className={`select-bar ${tab ? 'active' : 'default'}`} ref={selectRef} onClick={() => setTab((d) => !d)}>
                     <div className="select-bar-select">
-                        <div className={active=== "iuniCat" ? "sub-title active" : "sub-title"} onClick={() => setActive("iuniCat")}>캐릭터 설정</div>
+                        {selectName}
                     </div>
                     <Image
                         width={"1.5rem"}
@@ -100,15 +100,31 @@ function Page(){
                 {
                     tab &&
                     <div className="select-bar-content" ref={tabRef}>
-                        <div className={active === "myProfile" ? "sub-title active" : "sub-title"} onClick={() => {setActive("myProfile"); setTab(false)}}>
+                        <div className={active=== "iuniCat" ? "sub-title active" : "sub-title"} 
+                            onClick={() => {setActive("iuniCat"); 
+                                            setTab(false);
+                                            setSelectName(() => "캐릭터 설정")}}>
+                            캐릭터 설정
                         </div>
-                        <div className={active=== "shareTask" ? "sub-title active" : "sub-title"} onClick={() => {setActive("shareTask"); setTab(false);}}>
+                        <div className={active === "myProfile" ? "sub-title active" : "sub-title"} 
+                            onClick={() => {setActive("myProfile"); 
+                                            setTab(false);
+                                            setSelectName(() => "내 정보 변경")}}>
+                            내 정보 변경
+                        </div>
+                        <div className={active=== "shareTask" ? "sub-title active" : "sub-title"} 
+                            onClick={() => {setActive("shareTask"); 
+                                            setTab(false);
+                                            setSelectName(() => "공유 요청받은 태스크")}}>
                             공유 요청받은 태스크
                             <div className="alarm-count">
                                 {alarms?.shareTaskAlarms?.filter(e => e.isRead === false)?.length}
                             </div>
                         </div>
-                        <div className={active=== "alarm" ? "sub-title active" : "sub-title"} onClick={() => {setActive("alarm"); setTab(false);}}>
+                        <div className={active=== "alarm" ? "sub-title active" : "sub-title"} 
+                            onClick={() => {setActive("alarm"); 
+                                            setTab(false);
+                                            setSelectName(() => "알람")}}>
                             알람
                             <div className="alarm-count">
                                 {alarms?.shareTaskAlarms?.filter(e => e.isRead === false)?.length}
@@ -117,7 +133,8 @@ function Page(){
                         <div className={active=== "friendList" ? "sub-title active" : "sub-title"} onClick={() => {
                             setPrepare(true);
                             setTab(false);  
-                        }}>친구 목록</div>
+                            setSelectName(() => "친구 목록")}}>
+                            친구 목록</div>
                         <div className="sub-title log-out" onClick={() => logout()}>로그아웃</div>
                     </div>
                 }
@@ -216,6 +233,7 @@ function Page(){
                                 font-stretch: normal;
                                 font-style: normal;
                                 letter-spacing: -0.18px;
+                                cursor:pointer;
                             }
                             .select-bar.active{
                                 border: solid 1px #1120ff;
