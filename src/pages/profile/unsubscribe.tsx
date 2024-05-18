@@ -3,7 +3,10 @@ import React from "react";
 function Unsubscribe(){
     return (
         <>
-            탈퇴하기
+            <div>탈퇴하기</div>
+            <div>
+                
+            </div>
         </>
     )
 }

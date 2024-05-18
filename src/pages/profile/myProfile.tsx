@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import * as IuniStyleApi from "../../../public/api/iuniStyle";
 import ChangePw from "./changePw";
 import { changePw } from "../../../public/api/losePw";
+import Unsubscribe from "./unsubscribe";
 interface User {
     nickName: string,
     email: string,
@@ -31,20 +32,18 @@ export default function MyProfile() {
     }, []);
     return (
         <>
-            <div className="content">
-                <div className="content-header">
-                    <div className="content-title">
-                        {isUnscribe ? "탈퇴하기" : "내 정보 변경"}
-                    </div>
-                </div>
-                <div className="content-body">
-                    {
-                        isUnscribe ?
-                            <>
-                                <div>탈퇴하기 내용이에용</div>
-                            </>
-                            :
-                            <>
+            {
+                isUnscribe ?
+                    <>
+                        <Unsubscribe />
+                    </>
+                    :
+                    <>
+                        <div className="content">
+                            <div className="content-header">
+                                <div className="content-title">내 정보 변경</div>
+                            </div>
+                            <div className="content-body">
                                 <div className="basic-info">
                                     <div className="item">
                                         <div className="item title">이메일</div>
@@ -87,11 +86,11 @@ export default function MyProfile() {
                                         <div className="unSubscribe" onClick={() => setIsUnscribe(() => true)}>탈퇴하기</div>
                                     </div>
                                 </div>
-                            </>
-                    }
+                            </div>
+                        </div>
+                    </>
+            }
 
-                </div>
-            </div>
             <style jsx>
                 {
                     `
