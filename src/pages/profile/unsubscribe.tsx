@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as MemberApi from "../../../public/api/member";
-import { Console } from "console";
+import { useRouter } from "next/router";
+
 interface Props {
     setIsUnscribe: React.Dispatch<React.SetStateAction<boolean>>
 }
