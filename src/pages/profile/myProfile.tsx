@@ -35,7 +35,7 @@ export default function MyProfile() {
             {
                 isUnscribe ?
                     <>
-                        <Unsubscribe />
+                        <Unsubscribe setIsUnscribe={setIsUnscribe}/>
                     </>
                     :
                     <>

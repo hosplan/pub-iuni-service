@@ -18,6 +18,38 @@ export async function signUp(email: string, pw : string){
     }
 } 
 
+//탈퇴
+export async function unscribe(){
+    try{
+        return await RequestApi.request(`${process.env.NEXT_PUBLIC_LOGIN_API_HOST}/api/member/unscribe`, {
+            method : "PATCH",
+            headers : {
+                "Content-Type": "application/json",
+                "Authorization": `${localStorage.getItem("iuni")}`
+            }
+        });
+    }
+    catch(e){
+        throw e;
+    }
+}
+
+export async function disconnectAllUser(){
+    try{
+        return await RequestApi.request(`${process.env.NEXT_PUBLIC_CONTENT_API_HOST}/conts/member/unscribe`, {
+            method : "DELETE",
+            headers : {
+                "Content-Type": "application/json",
+                "Authorization": `${localStorage.getItem("iuni")}`
+            }
+        });
+    }
+
+    catch(e){
+        throw e;
+    }
+}
+
 export async function getCertification(){
     try{
         return await RequestApi.request(`${process.env.NEXT_PUBLIC_LOGIN_API_HOST}/api/member/my`, {
