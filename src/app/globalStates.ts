@@ -42,10 +42,12 @@ export const iuniStyleState = atom<IuniStyle>({
     default : {}
 })
 
+export const trashListState = atom<TrashBasket[]>({
+    key : "trashListState",
+    default : []
+});
 
-
-
-
-
-
-
+export const trashState = atom({
+    key : "trashState",
+    default : {}
+})

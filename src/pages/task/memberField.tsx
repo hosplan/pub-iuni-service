@@ -30,7 +30,7 @@ interface Props{
 }
 
 function MemberField(props: Props){
-    console.log("몇번을 렌더링 하는겨?");
+    
     const [createIuni, setCreateIuni] = useState<any>();
     const [editorIuni, setEditorIuni] = useState<any>();
     const [creator, setCreator] = useState<any>();
