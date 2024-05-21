@@ -1,3 +1,5 @@
+import TrashContent from "../trashBasket/trashContent";
+
 export default function Trashbasket(){
     return (
         <>
@@ -6,7 +8,7 @@ export default function Trashbasket(){
                     <div className="content-title">휴지통</div>
                 </div>
                 <div className="content-body">
-               
+                    <TrashContent />
                 </div>
             </div>
             <style jsx>

@@ -118,9 +118,9 @@ export async function removeByBoardId(boardId: number) {
 //태스크 아이디 기준으로 삭제
 export async function removeByTaskId(taskId: number) {
     try {
-        return await RequestApi.request(`${process.env.NEXT_PUBLIC_CONTENT_API_HOST}/conts/boardTaskMap/task?id=${taskId}`,
+        return await RequestApi.request(`${process.env.NEXT_PUBLIC_CONTENT_API_HOST}/conts/task/trash?id=${taskId}`,
             {
-                method: "DELETE",
+                method: "PATCH",
                 mode: "cors",
                 headers: {
                     "Content-Type": "application/json",

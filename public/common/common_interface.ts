@@ -94,3 +94,10 @@ interface Alarm{
     toMember : BasicMember;
     fromMember : BasicMember;
 }
+interface TrashBasket{
+    id:number;
+    name:string;
+    createDate:Date;
+    type:number;
+    trashId:number;
+}
