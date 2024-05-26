@@ -84,6 +84,7 @@ function Boards(props: Props) {
 
     //태스크 생성
     const renderTask = (data: Task) => {
+        console.log(data);
         const temp_taskInfo = JSON.parse(JSON.stringify(taskInfo));
         const taskList = temp_taskInfo[props.board?.id];
         taskList.push(data);
@@ -134,6 +135,7 @@ function Boards(props: Props) {
     };
 
     const updateTaskInfo = (task_list: any) => {
+        console.log(task_list);
         return new Promise<void>((resolve, reject) => {             
             
             setTaskInfo((pre: any) => {
