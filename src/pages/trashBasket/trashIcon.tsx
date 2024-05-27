@@ -10,18 +10,22 @@ interface Props {
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { trashState } from "@/app/globalStates";
+
 export default function TrashIcon(props: Props) {
     const [trashInfo, setTrashInfo] = useRecoilState(trashState);
     return (
         <>
             <div className="trash" onClick={() => {
                 props.setTab(() => true);
-                setTrashInfo({
-                    id:props.targetId,
-                    type : props.type,
-                    name : props.name,
-                    createDate: props.createDate,
-                    trashId : props.trashId
+                setTrashInfo(() => {
+                    const data = {
+                        id:props.targetId,
+                        type : props.type,
+                        name : props.name,
+                        createDate: props.createDate,
+                        trashId : props.trashId
+                    }
+                    return {...data};
                 });
             }}>
                 <img className="trash_img" src={ props.type === 0 ? "/images/trash_task.webp" : "/images/trash_board.webp"} />

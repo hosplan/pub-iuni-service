@@ -4,25 +4,35 @@ import { useRecoilState } from "recoil";
 import Image from "next/image";
 import { prettyDate, stringToDate, prettyDateTime } from "../../../public/common/common";
 import * as TrashAPI from "../../../public/api/trashBasket";
+
+// interface Trash {
+//     type: number;
+//     name: string;
+//     trashId: number;
+//     createDate: string;
+//     id: number;
+// }
+
+type Trash = {
+    type : number;
+    name : string;
+    trashId : number;   
+    createDate:Date;
+    id: number;
+}
 interface Props {
-    type: number;
-    name: string;
-    targetId: number;
-    createDate: string;
-    trashId: number;
+    // type: number;
+    // name: string;
+    // targetId: number;
+    // createDate: string;
+    // trashId: number;
+    trashInfo : Trash | undefined;
     setTab: React.Dispatch<React.SetStateAction<boolean>>
     setTrashList : React.Dispatch<React.SetStateAction<any>>
 }
-interface Trash {
-    type: number;
-    name: string;
-    trashId: number;
-    createDate: string;
-    id: number;
-}
 export default function (props: Props) {
     const tabRef = useRef<any>();
-    const [trashInfo, setTrashInfo] = useRecoilState(trashState);
+    //const [trashInfo, setTrashInfo] = useRecoilState(trashState);
     //const [trashList, setTrashList] = useRecoilState<Trash[]>(trashListState);
     useEffect(() => {
         function handleFocus(e: any) {
