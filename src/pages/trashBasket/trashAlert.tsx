@@ -1,29 +1,22 @@
-import { trashState, trashListState } from "@/app/globalStates";
 import { useEffect, useRef } from "react";
-import { useRecoilState } from "recoil";
 import Image from "next/image";
-import { prettyDate, stringToDate, prettyDateTime } from "../../../public/common/common";
+import { prettyDateTime } from "../../../public/common/common";
 import * as TrashAPI from "../../../public/api/trashBasket";
+
+type Trash = {
+    type : number;
+    name : string;
+    trashId : number;   
+    createDate:Date;
+    id: number;
+}
 interface Props {
-    type: number;
-    name: string;
-    targetId: number;
-    createDate: string;
-    trashId: number;
+    trashInfo : Trash | undefined;
     setTab: React.Dispatch<React.SetStateAction<boolean>>
     setTrashList : React.Dispatch<React.SetStateAction<any>>
 }
-interface Trash {
-    type: number;
-    name: string;
-    trashId: number;
-    createDate: string;
-    id: number;
-}
 export default function (props: Props) {
     const tabRef = useRef<any>();
-    const [trashInfo, setTrashInfo] = useRecoilState(trashState);
-    //const [trashList, setTrashList] = useRecoilState<Trash[]>(trashListState);
     useEffect(() => {
         function handleFocus(e: any) {
             if (tabRef.current && !tabRef.current.contains(e.target)) {
@@ -39,17 +32,16 @@ export default function (props: Props) {
             const result = d.filter(e => e.id !== id);
             return [...result];
         });
-        // setTrashList([...trashList].filter(trash => {
-        //     return trash.id !== id;
-        // }));
     }
     
-    const restore = async (id: number) => {
+    const restore = async (id: number = -1) => {
+        if(id < 0) return;
         await TrashAPI.restore(id);
         reload(id);
         props.setTab(() => false);
     }
-    const remove = async (id: number) => {
+    const remove = async (id: number = -1) => {
+        if(id < 0) return;
         await TrashAPI.remove(id);
         reload(id);
         props.setTab(() => false);
@@ -66,8 +58,8 @@ export default function (props: Props) {
                             src={"/images/default/delete-btn.webp"} />
                     </div>
                 </div>
-                <img className="trash-img" src={props.type === 0 ? "/images/trash_task.webp" : "/images/trash_board.webp"} />
-                <div className="trash-type">{props.type == 0 ? "태스크" : props.type == 1 ? "보드" : ""}</div>
+                <img className="trash-img" src={props.trashInfo?.type === 0 ? "/images/trash_task.webp" : "/images/trash_board.webp"} />
+                <div className="trash-type">{props.trashInfo?.type == 0 ? "태스크" : props.trashInfo?.type == 1 ? "보드" : ""}</div>
                 <div className="data-container">
 
                     <div className="name-container">
@@ -75,7 +67,7 @@ export default function (props: Props) {
                             <span>이름</span>
                         </div>
                         <div className="content-tab ac">
-                            <span>{props.name}</span>
+                            <span>{props.trashInfo?.name}</span>
                         </div>
                     </div>
                     <div className="date-container">
@@ -83,15 +75,15 @@ export default function (props: Props) {
                             <span>삭제일</span>
                         </div>
                         <div className="content-tab ac">
-                            <span>{prettyDateTime(stringToDate(props.createDate))}</span>
+                            <span>{prettyDateTime(props.trashInfo!.createDate)}</span>
                         </div>
                     </div>
                 </div>
                 <div className='button-container'>
-                    <button className='button red ac jc' onClick={async () => remove(props.targetId)}>
+                    <button className='button red ac jc' onClick={async () => remove(props.trashInfo?.id)}>
                         <span>삭제</span>
                     </button>
-                    <button className='button blue ac jc' onClick={async () => restore(props.targetId)}>
+                    <button className='button blue ac jc' onClick={async () => restore(props.trashInfo?.id)}>
                         <span>복원</span>
                     </button>
                 </div>

@@ -22,13 +22,13 @@ export function prettyDate(source : Date, delimiter = '-') {
 
 export function prettyDateTime(source : Date, delimiter = '-') {
     try{
+        if(typeof source == "string") source = new Date(source)
         const year = source.getFullYear();
         const month = leftPad(source.getMonth() + 1);
         const day = leftPad(source.getDate());
         const hour = leftPad(source.getHours());
         const mins = leftPad(source.getMinutes());
         const secs = leftPad(source.getSeconds());
-    
         const result = [year, month, day].join(delimiter) + " " + [hour, mins, secs].join(":")
         return result;
     }

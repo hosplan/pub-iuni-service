@@ -1,31 +1,33 @@
-interface Props {
+type Trash = {
     type : number;
     name : string;
-    key : number;
-    createDate: Date;
-    trashId : number;
-    targetId : number;
-    setTab : React.Dispatch<React.SetStateAction<boolean>>;
+    trashId : number;   
+    createDate:Date;
+    id: number;
 }
-import { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
-import { trashState } from "@/app/globalStates";
+interface Props {
+    trashInfo : Trash | undefined;
+    setTab : React.Dispatch<React.SetStateAction<boolean>>;
+    setTrashInfo : React.Dispatch<React.SetStateAction<any>>
+}
 export default function TrashIcon(props: Props) {
-    const [trashInfo, setTrashInfo] = useRecoilState(trashState);
     return (
         <>
             <div className="trash" onClick={() => {
                 props.setTab(() => true);
-                setTrashInfo({
-                    id:props.targetId,
-                    type : props.type,
-                    name : props.name,
-                    createDate: props.createDate,
-                    trashId : props.trashId
+                props.setTrashInfo((d : Trash) => {
+                    const data = {
+                        id:props.trashInfo?.id,
+                        type : props.trashInfo?.type,
+                        name : props.trashInfo?.name,
+                        createDate: props.trashInfo?.createDate,
+                        trashId : props.trashInfo?.trashId
+                    }
+                    return {...data};
                 });
             }}>
-                <img className="trash_img" src={ props.type === 0 ? "/images/trash_task.webp" : "/images/trash_board.webp"} />
-                <div className="name">{props.name}</div>
+                <img className="trash_img" src={ props.trashInfo?.type === 0 ? "/images/trash_task.webp" : "/images/trash_board.webp"} />
+                <div className="name">{props.trashInfo?.name}</div>
             </div>
             <style jsx>
                 {
