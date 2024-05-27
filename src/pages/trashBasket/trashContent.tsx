@@ -15,7 +15,7 @@ interface Trash {
 }
 export default function TrashContent(){
     const [tab, setTab] = useState<boolean>(false);
-    const [trashList, setTrashList] = useRecoilState<Trash[]>(trashListState);
+    const [trashList, setTrashList] = useState<Trash[]>([]);
     const [trashInfo, setTrashInfo] = useRecoilState(trashState);
         //태스크 불러오기
     const load = async () => {
@@ -28,7 +28,7 @@ export default function TrashContent(){
             createDate: rowData.createDate,
             id: rowData.id
         }));
-        setTrashList(_inputData);
+        setTrashList(() => [..._inputData]);
     }
     
     useEffect(() => {
@@ -40,13 +40,13 @@ export default function TrashContent(){
         <>
             {
                 tab && 
-                <TrashAlert setTab={setTab} targetId={trashInfo.id} type={trashInfo.type} name={trashInfo.name} createDate={trashInfo.createDate} trashId={trashInfo.trashId}/>
+                <TrashAlert setTab={setTab} setTrashList={setTrashList} targetId={trashInfo.id} type={trashInfo.type} name={trashInfo.name} createDate={trashInfo.createDate} trashId={trashInfo.trashId}/>
             }
             
             <div className="box">
                 {
                     trashList && trashList.map((trash: Trash) => (
-                            <TrashIcon key={trash.id} targetId={trash.id} type={trash.type} name={trash.name} createDate={trash.createDate} trashId={trash.trashId} setTab={setTab}/>
+                        <TrashIcon key={trash.id} targetId={trash.id} type={trash.type} name={trash.name} createDate={trash.createDate} trashId={trash.trashId} setTab={setTab}/>
                     ))
                 }
             </div>
@@ -61,8 +61,6 @@ export default function TrashContent(){
                     }
                     
                     `
-
-
                 }
             </style>
         </>

@@ -11,6 +11,7 @@ interface Props {
     createDate: string;
     trashId: number;
     setTab: React.Dispatch<React.SetStateAction<boolean>>
+    setTrashList : React.Dispatch<React.SetStateAction<any>>
 }
 interface Trash {
     type: number;
@@ -22,7 +23,7 @@ interface Trash {
 export default function (props: Props) {
     const tabRef = useRef<any>();
     const [trashInfo, setTrashInfo] = useRecoilState(trashState);
-    const [trashList, setTrashList] = useRecoilState<Trash[]>(trashListState);
+    //const [trashList, setTrashList] = useRecoilState<Trash[]>(trashListState);
     useEffect(() => {
         function handleFocus(e: any) {
             if (tabRef.current && !tabRef.current.contains(e.target)) {
@@ -32,11 +33,17 @@ export default function (props: Props) {
         document.addEventListener("mouseup", handleFocus);
         return () => { document.removeEventListener("mouseup", handleFocus) };
     }, [tabRef]);
+
     const reload = (id: number) => {
-        setTrashList([...trashList].filter(trash => {
-            return trash.id !== id;
-        }));
+        props.setTrashList((d : Trash[]) => {
+            const result = d.filter(e => e.id !== id);
+            return [...result];
+        });
+        // setTrashList([...trashList].filter(trash => {
+        //     return trash.id !== id;
+        // }));
     }
+    
     const restore = async (id: number) => {
         await TrashAPI.restore(id);
         reload(id);
