@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { prettyDateTime } from "../../../public/common/common";
 import * as TrashAPI from "../../../public/api/trashBasket";
-
 type Trash = {
     type : number;
     name : string;
@@ -33,7 +32,6 @@ export default function (props: Props) {
             return [...result];
         });
     }
-    
     const restore = async (id: number = -1) => {
         if(id < 0) return;
         await TrashAPI.restore(id);
